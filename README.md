@@ -3,15 +3,29 @@
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
     <h1 align="center">Проект на основе Framework Yii 2.0</h1>
-    <br>
 </p>
 
 Этот проект был создан для изучения Yii 2.0 Framework и языка PHP в рамках обучающего курса "PHP PRACTICE" в образовательно-событийном центре «Digital Space» https://dspace.pro
+   
+ОПИСАНИЕ ПРОЕКТА
+------------
+Сайт службы технической поддержки клиентов.
+
+**Планируемый функционал:**
+- Приём заявок.
+- Информирование мастеров о поступивших заявках. 
+- Работа с заявками и отметки о выполнении.
+- Просмотр истории и возвращение закрытых заявок в работу.
+- Информационные страницы с технической документацией и внутренние распоряжения.
+- База знаний наполняемая мастерами.
+- Специализированные страницы для отчетов мастеров о проделанной работе.
+- Мобильный интерфейс для работы с заявками и базой знаний.
+- Обмен сообщениями между пользователями.
+
+**Реализовано:**
+- Создание проекта, настройка базы данных, создание Git репозитория (https://github.com/SteeringBIG/yii2)
 
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
 
 ТРЕБОВАНИЯ
 ------------
