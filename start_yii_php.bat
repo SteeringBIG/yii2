@@ -1,1 +1,1 @@
-php -S localhost:8000 -t ./web
+start php -S localhost:8000 -t ./web
