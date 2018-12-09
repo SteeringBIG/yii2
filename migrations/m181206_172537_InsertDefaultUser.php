@@ -14,7 +14,7 @@ class m181206_172537_InsertDefaultUser extends Migration
     {
 	    $this->insert('user', [
 	    	'login' => 'Admin',
-		    'name' => 'Administrator'
+		    'name' => 'Administrator',
 	    ]);
 	
 	    $this->insert('user', [

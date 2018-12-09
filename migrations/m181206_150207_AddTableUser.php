@@ -17,7 +17,7 @@ class m181206_150207_AddTableUser extends Migration
 			'user_id' => $this->integer()->unsigned()->comment('Код пользователя во внешней базе'),
 			'status' => $this->bigInteger()->unsigned()->notNull()->defaultValue(1)->comment('Статус пользователя в системе'),
 			'login' => $this->string(50)->notNull()->unique()->comment('Логин пользователя'),
-			'password_hash' => $this->string(200),
+			'password_hash' => $this->string(200)->notNull(),
 			'last_name' => $this->string(50)->comment('Фамилия'),
 			'name' => $this->string(50)->comment('Имя'),
 			'e_mail' => $this->string(50)->comment('Электронная почта'),
