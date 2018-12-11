@@ -12,7 +12,7 @@ class m181206_150207_AddTableUser extends Migration
      */
     public function safeUp()
     {
-		$this->createTable('user', [
+		$this->createTable('{{%user}}', [
 			'id' => $this->primaryKey()->comment('Первичный ключь'),
 			'user_id' => $this->integer()->unsigned()->comment('Код пользователя во внешней базе'),
 			'status' => $this->bigInteger()->unsigned()->notNull()->defaultValue(1)->comment('Статус пользователя в системе'),
@@ -31,7 +31,7 @@ class m181206_150207_AddTableUser extends Migration
      */
     public function safeDown()
     {
-		$this->dropTable('user');
+		$this->dropTable('{{%user}}');
     }
 
     /*

@@ -25,7 +25,7 @@ class RegisterForm extends Model
 		return [
 			['username', 'trim'],
 			['username', 'required'],
-			['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Этот логин не подходит.'],
+			['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Этот логин не подходит. Минимум 2, максимум 255 символов.'],
 			['username', 'string', 'min' => 2, 'max' => 255],
 			['email', 'trim'],
 			['email', 'required'],

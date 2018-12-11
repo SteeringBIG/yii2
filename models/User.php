@@ -11,18 +11,12 @@ namespace app\models;
  * @property string $password_hash
  * @property string $email
  * @property integer $status
+ * @property string $auth_key
  * @property string $password write-only password
  */
 
-class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
+class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
-    public $password_hash;
-    public $authKey;
-    public $accessToken;
-	
 	const STATUS_ACTIVE = 1;
 	const STATUS_DELETED = 0;
 	
@@ -31,7 +25,7 @@ class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
 	 */
 	public static function tableName()
 	{
-		return '{{%user}}';
+		return '{{%users}}';
 	}
 	
 	
@@ -96,7 +90,7 @@ class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
      */
     public function getId()
     {
-        return $this->id;
+        return $this->getPrimaryKey();
     }
 
     /**
@@ -104,7 +98,7 @@ class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+        return $this->auth_key;
     }
 
     /**
@@ -112,7 +106,7 @@ class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+        return $this->auth_key === $authKey;
     }
 
     /**
@@ -126,6 +120,15 @@ class User extends yii\db\ActiveRecord implements yii\web\IdentityInterface
 	    return \Yii::$app->security->validatePassword($password, $this->password_hash);
 //        return $this->password === $password;
     }
-	
+    
 
+	public function setPassword($password)
+	{
+		$this->password_hash = \Yii::$app->security->generatePasswordHash($password);
+	}
+	
+	public function generateAuthKey()
+	{
+		$this->auth_key = \Yii::$app->security->generateRandomString();
+	}
 }

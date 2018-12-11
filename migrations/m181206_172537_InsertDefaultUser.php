@@ -12,15 +12,12 @@ class m181206_172537_InsertDefaultUser extends Migration
      */
     public function safeUp()
     {
-	    $this->insert('user', [
+	    $this->insert('{{%user}}', [
 	    	'login' => 'Admin',
 		    'name' => 'Administrator',
+		    'password_hash' => '000',
 	    ]);
-	
-	    $this->insert('user', [
-	    	'login' => 'User',
-		    'name' => 'Test user'
-	    ]);
+	    
     }
 
     /**
@@ -28,8 +25,8 @@ class m181206_172537_InsertDefaultUser extends Migration
      */
     public function safeDown()
     {
-		$this->delete('user', 'login=Admin');
-		$this->delete('user', 'login=User');
+		$this->delete('{{%user}}', 'login=Admin');
+		$this->delete('{{%user}}', 'login=User');
     }
 
     /*
