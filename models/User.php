@@ -28,7 +28,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 		return '{{%users}}';
 	}
 	
-	
 	/**
 	 * @inheritdoc
 	 */
@@ -61,7 +60,6 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 //                return new static($user);
 //            }
 //        }
-//
 //        return null;
     }
 
@@ -75,13 +73,11 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
 	    return static::findOne(['login' => $username, 'status' => self::STATUS_ACTIVE]);
 //	    ActiveRecord::find()->where(['login' => $username])->one();
-    	
 //        foreach (self::$users as $user) {
 //            if (strcasecmp($user['username'], $username) === 0) {
 //                return new static($user);
 //            }
 //        }
-
         return null;
     }
 
