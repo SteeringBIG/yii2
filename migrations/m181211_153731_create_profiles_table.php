@@ -38,5 +38,16 @@ class m181211_153731_create_profiles_table extends Migration
     public function safeDown()
     {
         $this->dropTable('{{%profiles}}');
+	
+	    $this->dropColumn('{{%users}}', 'auth_key', $this->string(32));
+	    $this->dropColumn('{{%users}}', 'id_profile', $this->integer());
+	    
+	    $this->addColumn('{{%users}}', 'user_id');
+	    $this->addColumn('{{%users}}', 'last_name');
+	    $this->addColumn('{{%users}}', 'name');
+	    $this->addColumn('{{%users}}', 'phone');
+	
+	    $this->renameTable('{{%users}}', '{{%user}}');
+	    
     }
 }
