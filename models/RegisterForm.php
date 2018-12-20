@@ -25,14 +25,14 @@ class RegisterForm extends Model
 		return [
 			['username', 'trim'],
 			['username', 'required'],
-			['username', 'unique', 'targetAttribute' => 'login', 'message' => 'Этот логин не подходит. Минимум 2, максимум 255 символов.'],
+			['username', 'unique', 'targetAttribute' => 'login', 'targetClass' => '\app\models\User', 'message' => 'Этот логин не подходит. Минимум 2, максимум 255 символов.'],
 			//['username', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Этот логин не подходит. Минимум 2, максимум 255 символов.'],
 			['username', 'string', 'min' => 2, 'max' => 255],
 			['email', 'trim'],
 			['email', 'required'],
 			['email', 'email'],
 			['email', 'string', 'max' => 255],
-			['email', 'unique', 'targetAttribute' => 'e_mail', 'message' => 'Email не прошол проверку.'],
+			['email', 'unique', 'targetAttribute' => 'e_mail', 'targetClass' => '\app\models\User', 'message' => 'Email не прошол проверку.'],
 			//['email', 'unique', 'targetClass' => '\app\models\User', 'message' => 'Email не прошол проверку.'],
 			['password', 'required'],
 			['password', 'string', 'min' => 6],
@@ -51,8 +51,8 @@ class RegisterForm extends Model
 		}
 		
 		$user = new User();
-		$user->username = $this->username;
-		$user->email = $this->email;
+		$user->login = $this->username;
+		$user->e_mail = $this->email;
 		$user->setPassword($this->password);
 		
 		return $user->save() ? $user : null;
